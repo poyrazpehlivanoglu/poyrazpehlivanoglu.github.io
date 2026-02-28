@@ -52,12 +52,13 @@
 
     /* Main wrapper */
     main{
-      flex: 1;
+  flex: 1;
       max-width:1000px;
       margin: 24px auto;
       padding: 0 20px;
       position: relative;
       width: 100%;
+      min-height: 300px; /* fallback */
     }
 
     h2{
@@ -469,29 +470,43 @@
   </footer>
 
   <script>
-    const navLinks = document.querySelectorAll("nav a[data-target]");
-    const sections = document.querySelectorAll(".page-section");
+  const navLinks = document.querySelectorAll("nav a[data-target]");
+  const sections = document.querySelectorAll(".page-section");
+  const mainEl = document.querySelector("main");
 
-    function showSection(id){
-      sections.forEach(sec => sec.classList.remove("active"));
-      const target = document.getElementById(id);
-      if (target) target.classList.add("active");
-
-      navLinks.forEach(a => a.classList.remove("active-link"));
-      const activeLink = document.querySelector(`nav a[data-target="${id}"]`);
-      if (activeLink) activeLink.classList.add("active-link");
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        showSection(link.getAttribute("data-target"));
-      });
+  function setMainHeightToActive(){
+    const active = document.querySelector(".page-section.active");
+    if (!active) return;
+    // wait 1 frame so the DOM/layout updates after class change
+    requestAnimationFrame(() => {
+      mainEl.style.height = active.offsetHeight + "px";
     });
+  }
 
-     showSection("general");
-  
-  </script>
+  function showSection(id){
+    sections.forEach(sec => sec.classList.remove("active"));
+    const target = document.getElementById(id);
+    if (target) target.classList.add("active");
+
+    navLinks.forEach(a => a.classList.remove("active-link"));
+    const activeLink = document.querySelector(`nav a[data-target="${id}"]`);
+    if (activeLink) activeLink.classList.add("active-link");
+
+    setMainHeightToActive();
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      showSection(link.getAttribute("data-target"));
+    });
+  });
+
+  window.addEventListener("resize", setMainHeightToActive);
+
+  // Default page
+  showSection("general"); 
+</script>
 
 </body>
 </html>
