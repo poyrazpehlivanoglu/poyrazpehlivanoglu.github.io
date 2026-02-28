@@ -57,14 +57,30 @@
     font-size: 0.95rem;
   }
 
-  nav{
-    padding: 10px 8px;
-  }
+ nav{
+  background:#222;
+  padding:10px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-  nav a{
-    display: inline-block;
-    margin: 6px 10px;
-  }
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;         
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin:0;               
+  padding:6px 10px;      
+  border-radius:8px;
+  font-size:0.95rem;
+}
+
+nav a:hover{ text-decoration:underline; }
+nav a.active-link{ text-decoration: underline; }
 
   main, section{
     padding: 0 14px;
