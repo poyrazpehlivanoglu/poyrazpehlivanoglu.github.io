@@ -38,57 +38,43 @@
     header h1{ margin:0; font-size:2.5rem; }
     header p{ margin-top:10px; color:#bbb; }
 
-    .header-icons{
+    /* --- Header icons (same size buttons) --- */
+.header-icons{
   margin-top: 16px;
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
-    .header-icons a{
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
+/* the button box */
+.header-icons a{
+  width: 56px;              /* make bigger (try 56-64) */
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;       /* more rounded */
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
-    .header-icons a svg{
-      overflow: visible;
-    }
+/* force the icon to be same size whether it's <img> or <svg> */
+.header-icons a img,
+.header-icons a svg{
+  width: 28px;               /* icon size inside the box */
+  height: 28px;
+  display: block;
+}
 
-    .header-icons img.icon{
-    width: 26px;
-    height: 26px;
-    display: block;
-    }
-    
-    /* LinkedIn */
-    .header-icons a.linkedin{
-      background: #0A66C2;   /* official LinkedIn blue */
-      color: #fff;
-    }
-    
-    /* GitHub */
-    .header-icons a.github{
-      background: #000; 
-      color: #fff;
-    }
+/* background colors */
+.header-icons a.github{ background:#000; color:#fff; }
+.header-icons a.linkedin{ background:#0A66C2; color:#fff; }
+.header-icons a.email{ background:#000; color:#fff; }
 
-    /* Email */
-    .header-icons a.email{
-      background: #111;   /* dark like your header */
-      color: #fff;
-    }
-    
-    .header-icons a:hover{
-      transform: scale(1.08);
-      opacity: 0.9;
-    }
-
+.header-icons a:hover{
+  transform: scale(1.06);
+  opacity: 0.92;
+}
     
     /* Nav */
     nav{
