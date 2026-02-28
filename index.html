@@ -34,6 +34,22 @@
       color: #bbb;
     }
 
+    .page-section{
+      display:none;
+      opacity:0;
+      transform: translateY(8px);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+    
+    .page-section.active{
+      display:block;
+      opacity:1;
+      transform: translateY(0);
+    }
+    
+    nav a.active-link{
+      text-decoration: underline;
+    }
     nav {
       text-align: center;
       background: #222;
@@ -183,14 +199,14 @@
   </header>
 
   <nav>
-    <a href="#cv">CV</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a> 
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#" data-target="cv">CV</a>
+    <a href="#" data-target="about">About</a>
+    <a href="#" data-target="skills">Skills</a> 
+    <a href="#" data-target="projects">Projects</a>
+    <a href="#" data-target="contacts">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="about" class ="page-section">
     <h2>About Me</h2>
     <p>
       I am a Computer Science student at Bilkent University, expected to graduate in 2028,
@@ -205,7 +221,7 @@
     </p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class ="page-section">
     <h2>Skills</h2>
 
     <div class="skills-grid">
@@ -240,7 +256,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class ="page-section">
   <h2>Projects</h2>
 
   <div class="projects-grid">
@@ -283,7 +299,7 @@
   </div>
 </section>
 
-  <section id="cv">
+  <section id="cv" class ="page-section">
     <h2>CV</h2>
     <div class="cv-container">
       <p>Download my CV as a PDF.</p>
@@ -297,7 +313,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class ="page-section">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:ppehlivanoglu@outlook.com">ppehlivanoglu@outlook.com</a></p>
     <p>GitHub: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">github.com/poyrazpehlivanoglu</a></p>
