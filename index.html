@@ -115,27 +115,28 @@
     }
 
     /* Default tab-like pages (animated switching) */
+   /* Tab pages: hide/show without breaking normal page height */
     .page-section{
-      position:absolute;
-      left:0;
-      top:0;
-      width:100%;
-      opacity:0;
+      display: none;            /* hidden tabs don't take space */
+      opacity: 0;
       transform: translateY(10px);
-      transition: opacity 130ms ease, transform 130ms ease;
-      pointer-events:none;
     }
+    
     .page-section.active{
-      position:relative;
+      display: block;           
       opacity: 1;
       transform: translateY(0);
-      pointer-events:auto;
+      animation: fadeIn 260ms ease;
     }
-
-     Sections spacing inside pages */
-    .block{
-      margin: 26px 0;
+    
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(10px); }
+      to  { opacity:1; transform:translateY(0); }
     }
+         Sections spacing inside pages */
+        .block{
+          margin: 26px 0;
+        }
 
     footer{
       text-align: center;
