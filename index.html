@@ -324,5 +324,27 @@
     © 2026 Poyraz Pehlivanoglu
   </footer>
 
+<script>
+  const navLinks = document.querySelectorAll("nav a[data-target]");
+  const sections = document.querySelectorAll(".page-section");
+
+  function showSection(id){
+    sections.forEach(sec => sec.classList.remove("active"));
+    const target = document.getElementById(id);
+    if (target) target.classList.add("active");
+
+    navLinks.forEach(a => a.classList.remove("active-link"));
+    const activeLink = document.querySelector(`nav a[data-target="${id}"]`);
+    if (activeLink) activeLink.classList.add("active-link");
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = link.getAttribute("data-target");
+      showSection(id);
+    });
+  });
+</script>
 </body>
 </html>
