@@ -14,10 +14,14 @@
     }
 
     header {
-      background-color: #111;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    background-color: #111;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     }
 
     header h1 {
@@ -65,7 +69,7 @@
       margin-top: 40px;
     }
 
-    /* Skills (Option B) */
+    /* Skills */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -95,13 +99,30 @@
       font-size: 0.95rem;
     }
 
-    Below is a drop-in Projects section that matches your current style (cards + tags). I’m also including the CSS you need and the nav update. You can copy/paste.
+/* CV Section */
+.cv-container{
+  margin-top:20px;
+  background:#fff;
+  padding:24px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  text-align:center;
+}
 
-Also: your email <a> is currently broken — I fixed that in the nav/section notes at the end.
+.cv-btn{
+  display:inline-block;
+  margin-top:14px;
+  background:#007acc;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
 
-1) Add this CSS inside your <style> (near your Skills CSS)
-<style>
-  /* ...your existing CSS... */
+.cv-btn:hover{
+  opacity:0.9;
+}
 
   /* Projects */
   .projects-grid{
@@ -158,13 +179,15 @@ Also: your email <a> is currently broken — I fixed that in the nav/section not
 
   <header>
     <h1>Poyraz Pehlivanoğlu</h1>
-    <p>Computer Engineering Student | Developer</p>
+    <p>Junior Computer Engineering Student | Developer</p>
+    
   </header>
 
   <nav>
+    <a href="#cv">CV</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a> 
-     <a href="#contact">Projects</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     
   </nav>
@@ -264,7 +287,7 @@ Also: your email <a> is currently broken — I fixed that in the nav/section not
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">GitHub Repo</a></p>
+    <p>Email: <a href="mailto:ppehlivanoglu@outlook.com">ppehlivanoglu@outlook.com</a></p>
     <p>GitHub: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">github.com/poyrazpehlivanoglu</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/poyrazpehlivanoglu/" target="_blank" rel="noopener">linkedin.com/in/poyrazpehlivanoglu</a></p>
   </section>
