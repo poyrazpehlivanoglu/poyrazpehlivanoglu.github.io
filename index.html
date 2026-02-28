@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-     body{
+    body{
       margin:0;
       font-family: Arial, sans-serif;
       background:#f4f4f4;
@@ -16,90 +16,22 @@
       flex-direction:column;
     }
 
-     header{
+    /* Header full-width black */
+    header{
       padding: 50px 12px;
       background: #111;
     }
     .header-inner{
       max-width: 1000px;
       margin: 0 auto;
-      background:#111;
       color:#fff;
-      border-radius:0  ;
-      padding: 0;
       text-align:center;
-      
     }
+    header h1{ margin:0; font-size:2.5rem; }
+    header p{ margin-top:10px; color:#bbb; }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 10px;
-      color: #bbb;
-    }
-
-    /* Mobile */
-@media (max-width: 600px){
-
-  header{
-    padding: 36px 14px;   
-  }
-
-  header h1{
-    font-size: 1.8rem; 
-    line-height: 1.15;
-  }
-
-  header p{
-    font-size: 0.95rem;
-  }
-
- nav{
-  background:#222;
-  padding:10px 12px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px 18px;         
-}
-
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin:0;               
-  padding:6px 10px;      
-  border-radius:8px;
-  font-size:0.95rem;
-}
-
-nav a:hover{ text-decoration:underline; }
-nav a.active-link{ text-decoration: underline; }
-
-  main, section{
-    padding: 0 14px;
-    margin: 20px auto;
-  }
-
-
-  .skills-grid,
-  .projects-grid{
-    grid-template-columns: 1fr; 
-  }
-
-  .project-card,
-  .skill-box{
-    padding: 14px;
-  }
-}
-    
-     nav{
+    /* Nav */
+    nav{
       text-align:center;
       background:#222;
       padding:10px;
@@ -111,29 +43,30 @@ nav a.active-link{ text-decoration: underline; }
       color:#fff;
       margin:0 15px;
       text-decoration:none;
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:8px;
     }
     nav a:hover{ text-decoration:underline; }
     nav a.active-link{ text-decoration: underline; }
 
-     main{
-      flex: 1; 
+    /* Main wrapper */
+    main{
+      flex: 1;
       max-width:1000px;
       margin: 24px auto;
       padding: 0 20px;
-      position: relative; 
+      position: relative;
       width: 100%;
     }
-      h2 {
+
+    h2{
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
+      margin-top:0;
     }
 
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
+    /* Default tab-like pages (animated switching) */
     .page-section{
       position:absolute;
       left:0;
@@ -142,16 +75,29 @@ nav a.active-link{ text-decoration: underline; }
       opacity:0;
       transform: translateY(10px);
       transition: opacity 260ms ease, transform 260ms ease;
-      pointer-events:none; 
+      pointer-events:none;
     }
     .page-section.active{
-      position:relative;  
+      position:relative;
       opacity: 1;
       transform: translateY(0);
       pointer-events:auto;
     }
 
-    footer {
+    /* General page: normal flow + scroll (not absolute) */
+    .general-page{
+      position:relative;
+      opacity:1;
+      transform:none;
+      pointer-events:auto;
+    }
+
+    /* Sections spacing inside pages */
+    .block{
+      margin: 26px 0;
+    }
+
+    footer{
       text-align: center;
       padding: 20px;
       background: #111;
@@ -186,239 +132,360 @@ nav a.active-link{ text-decoration: underline; }
       font-size:0.95rem;
     }
 
-  /* CV Section */
-  .cv-container{
-    margin-top:20px;
-    background:#fff;
-    padding:24px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-    text-align:center;
-  }
-  
-  .cv-btn{
-    display:inline-block;
-    margin-top:14px;
-    background:#007acc;
-    color:#fff;
-    padding:10px 18px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-  }
-  
-  .cv-btn:hover{
-    opacity:0.9;
-  }
+    /* CV */
+    .cv-container{
+      margin-top:20px;
+      background:#fff;
+      padding:24px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+    .cv-btn{
+      display:inline-block;
+      margin-top:14px;
+      background:#007acc;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .cv-btn:hover{ opacity:0.9; }
 
-  /* Projects */
-  .projects-grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap:18px;
-    margin-top:18px;
-  }
+    /* Projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+    .project-card{
+      background:#fff;
+      padding:18px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+    .project-title{ margin:0 0 8px 0; font-size:1.15rem; }
+    .project-desc{ margin:0 0 12px 0; line-height:1.5; }
+    .project-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:10px 0 14px 0;
+    }
+    .project-chip{
+      background:#eef6ff;
+      color:#0b4f7a;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:0.9rem;
+    }
+    .project-links a{
+      display:inline-block;
+      margin-right:12px;
+      color:#007acc;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .project-links a:hover{ text-decoration:underline; }
 
-  .project-card{
-    background:#fff;
-    padding:18px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-  }
+    /* Mobile */
+    @media (max-width: 600px){
+      header{ padding: 36px 14px; }
+      header h1{ font-size: 1.8rem; line-height: 1.15; }
+      header p{ font-size: 0.95rem; }
 
-  .project-title{
-    margin:0 0 8px 0;
-    font-size:1.15rem;
-  }
+      nav{
+        padding:10px 12px;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:10px 14px;
+      }
+      nav a{ margin:0; font-size:0.95rem; }
 
-  .project-desc{
-    margin:0 0 12px 0;
-    line-height:1.5;
-  }
+      main{ padding:0 14px; }
 
-  .project-meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:10px 0 14px 0;
-  }
+      .skills-grid,
+      .projects-grid{ grid-template-columns: 1fr; }
 
-  .project-chip{
-    background:#eef6ff;
-    color:#0b4f7a;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:0.9rem;
-  }
-
-  .project-links a{
-    display:inline-block;
-    margin-right:12px;
-    color:#007acc;
-    text-decoration:none;
-    font-weight:600;
-  }
-  .project-links a:hover{ text-decoration:underline; }
+      .project-card,
+      .skill-box{ padding: 14px; }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
-   <div class="header-inner">
-    <h1>Poyraz Pehlivanoğlu</h1>
-    <p>Junior Computer Engineering Student | Developer</p> 
-      </div>
+    <div class="header-inner">
+      <h1>Poyraz Pehlivanoğlu</h1>
+      <p>Junior Computer Engineering Student | Developer</p>
+    </div>
   </header>
 
   <nav>
+    <a href="#" data-target="general">General</a>
     <a href="#" data-target="cv">CV</a>
     <a href="#" data-target="about">About</a>
-    <a href="#" data-target="skills">Skills</a> 
+    <a href="#" data-target="skills">Skills</a>
     <a href="#" data-target="projects">Projects</a>
     <a href="#" data-target="contact">Contact</a>
   </nav>
+
   <main>
-  <section id="about" class ="page-section active">
-    <h2>About Me</h2>
-    <p>
-      I am a Computer Science student at Bilkent University, expected to graduate in 2028,
-      with a strong interest in backend development for mobile and web applications.
-      <br><br>
-      I work with Java, C++, and MIPS Assembly, focusing on building efficient and scalable
-      application infrastructure. During my recent summer internship as a Backend Developer,
-      I contributed to improving backend systems and supporting core application functionality.
-      <br><br>
-      I am motivated by solving complex problems, writing clean and efficient code, and
-      collaborating within teams where I can take responsibility and contribute as a leader.
-    </p>
-  </section>
 
-  <section id="skills" class ="page-section">
-    <h2>Skills</h2>
+    <!-- GENERAL (everything in one scrollable page) -->
+    <section id="general" class="page-section general-page">
+      <h2>General</h2>
 
-    <div class="skills-grid">
-      <div class="skill-box">
-        <h3>Languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Java (JavaFX)</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">MIPS Assembly</span>
-           <span class="skill-tag">Python (Django REST)</span>
-        </div>
+      <div class="block">
+        <h3>About Me</h3>
+        <p>
+          I am a Computer Science student at Bilkent University, expected to graduate in 2028,
+          with a strong interest in backend development for mobile and web applications.
+          <br><br>
+          I work with Java, C++, and MIPS Assembly, focusing on building efficient and scalable
+          application infrastructure. During my recent summer internship as a Backend Developer,
+          I contributed to improving backend systems and supporting core application functionality.
+          <br><br>
+          I am motivated by solving complex problems, writing clean and efficient code, and
+          collaborating within teams where I can take responsibility and contribute as a leader.
+        </p>
       </div>
 
-      <div class="skill-box">
-        <h3>Backend / Tools</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Git/GitHub</span>
-          <span class="skill-tag">MySQL</span>
-        </div>
-      </div>
-
-      <div class="skill-box">
+      <div class="block">
         <h3>Skills</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Team Leadership</span>
-          <span class="skill-tag">Problem Solving</span>
-          <span class="skill-tag">Teamwork and Collaboration</span>
-           <span class="skill-tag">Former Licensed Basketball Player</span>
-           <span class="skill-tag">Drummer</span>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Java (JavaFX)</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">MIPS Assembly</span>
+              <span class="skill-tag">Python (Django REST)</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Backend / Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">MySQL</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Skills</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Teamwork and Collaboration</span>
+              <span class="skill-tag">Former Licensed Basketball Player</span>
+              <span class="skill-tag">Drummer</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="projects" class ="page-section">
-  <h2>Projects</h2>
+      <div class="block">
+        <h3>Projects</h3>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3 class="project-title">FootBil</h3>
+            <p class="project-desc">
+              Developed a Java/JavaFX desktop application that allows users to organize and manage football matches.
+              The system supports user chat, match reservations, match score entry,
+              and team formation invitations delivered as in-app notifications.
+              A dynamic leaderboard ranks players based on winrate performance.
+            </p>
 
-  <div class="projects-grid">
+            <div class="project-meta">
+              <span class="project-chip">Backend</span>
+              <span class="project-chip">Java</span>
+              <span class="project-chip">JavaFX</span>
+            </div>
 
-    <div class="project-card">
-      <h3 class="project-title">FootBil</h3>
-      <p class="project-desc">
-        Developed a Java/JavaFX desktop application that allows users to organize and manage football matches. 
-        The system supports user chat, match reservations, match score entry, 
-        and team formation invitations delivered as in-app notifications.
-        A dynamic leaderboard ranks players based on winrate performance.
+            <div class="project-links">
+              <a href="https://github.com/ainalrami/FootBil" target="_blank" rel="noopener">GitHub Repo</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">WorkFlow School - University Platform</h3>
+            <p class="project-desc">
+              A university workflow platform designed to enable structured interaction between students, instructors, and teaching assistants within an integrated academic system.
+              The platform supports role based access and is architected to integrate with learning environments such as Moodle.
+              I implemented the core backend infrastructure and designed the database layer using MySQL.
+            </p>
+
+            <div class="project-meta">
+              <span class="project-chip">Python</span>
+              <span class="project-chip">Django REST Framework</span>
+              <span class="project-chip">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>CV</h3>
+        <div class="cv-container">
+          <p>Download my CV as a PDF.</p>
+          <a class="cv-btn" href="assets/Poyraz_Pehlivanoglu_CV.pdf" target="_blank" rel="noopener">
+            Download CV (PDF)
+          </a>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:ppehlivanoglu@outlook.com">ppehlivanoglu@outlook.com</a></p>
+        <p>GitHub: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">github.com/poyrazpehlivanoglu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/poyrazpehlivanoglu/" target="_blank" rel="noopener">linkedin.com/in/poyrazpehlivanoglu</a></p>
+      </div>
+    </section>
+
+    <!-- INDIVIDUAL PAGES (tabs) -->
+    <section id="about" class="page-section">
+      <h2>About Me</h2>
+      <p>
+        I am a Computer Science student at Bilkent University, expected to graduate in 2028,
+        with a strong interest in backend development for mobile and web applications.
+        <br><br>
+        I work with Java, C++, and MIPS Assembly, focusing on building efficient and scalable
+        application infrastructure. During my recent summer internship as a Backend Developer,
+        I contributed to improving backend systems and supporting core application functionality.
+        <br><br>
+        I am motivated by solving complex problems, writing clean and efficient code, and
+        collaborating within teams where I can take responsibility and contribute as a leader.
       </p>
+    </section>
 
-      <div class="project-meta">
-        <span class="project-chip">Backend</span>
-        <span class="project-chip">Java</span>
-        <span class="project-chip">JavaFX</span>
+    <section id="skills" class="page-section">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java (JavaFX)</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">MIPS Assembly</span>
+            <span class="skill-tag">Python (Django REST)</span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <h3>Backend / Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="skill-box">
+          <h3>Skills</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Team Leadership</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Teamwork and Collaboration</span>
+            <span class="skill-tag">Former Licensed Basketball Player</span>
+            <span class="skill-tag">Drummer</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="project-links">
-        <a href="https://github.com/ainalrami/FootBil" target="_blank" rel="noopener">GitHub Repo</a>
+    <section id="projects" class="page-section">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">FootBil</h3>
+          <p class="project-desc">
+            Developed a Java/JavaFX desktop application that allows users to organize and manage football matches.
+            The system supports user chat, match reservations, match score entry,
+            and team formation invitations delivered as in-app notifications.
+            A dynamic leaderboard ranks players based on winrate performance.
+          </p>
+
+          <div class="project-meta">
+            <span class="project-chip">Backend</span>
+            <span class="project-chip">Java</span>
+            <span class="project-chip">JavaFX</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ainalrami/FootBil" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-title">WorkFlow School - University Platform</h3>
+          <p class="project-desc">
+            A university workflow platform designed to enable structured interaction between students, instructors, and teaching assistants within an integrated academic system.
+            The platform supports role based access and is architected to integrate with learning environments such as Moodle.
+            I implemented the core backend infrastructure and designed the database layer using MySQL.
+          </p>
+
+          <div class="project-meta">
+            <span class="project-chip">Python</span>
+            <span class="project-chip">Django REST Framework</span>
+            <span class="project-chip">MySQL</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project-card">
-      <h3 class="project-title">WorkFlow School - University Platform</h3>
-      <p class="project-desc">
-        A university workflow platform designed to enable structured interaction between students, instructors, and teaching assistants within an integrated academic system. 
-        The platform supports role based access and is architected to integrate with learning environments such as Moodle.
-
-        I implemented the core backend infrastructure and designed the database layer using MySQL.
-      </p>
-
-      <div class="project-meta">
-        <span class="project-chip">Python</span>
-        <span class="project-chip">Django REST Framework</span>
-        <span class="project-chip">MySQL</span>
+    <section id="cv" class="page-section">
+      <h2>CV</h2>
+      <div class="cv-container">
+        <p>Download my CV as a PDF.</p>
+        <a class="cv-btn" href="assets/Poyraz_Pehlivanoglu_CV.pdf" target="_blank" rel="noopener">
+          Download CV (PDF)
+        </a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-  <section id="cv" class ="page-section">
-    <h2>CV</h2>
-    <div class="cv-container">
-      <p>Download my CV as a PDF.</p>
-  
-      <a class="cv-btn"
-         href="assets/Poyraz_Pehlivanoglu_CV.pdf"
-         target="_blank"
-         rel="noopener">
-        Download CV (PDF)
-      </a>
-    </div>
-  </section>
+    <section id="contact" class="page-section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:ppehlivanoglu@outlook.com">ppehlivanoglu@outlook.com</a></p>
+      <p>GitHub: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">github.com/poyrazpehlivanoglu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/poyrazpehlivanoglu/" target="_blank" rel="noopener">linkedin.com/in/poyrazpehlivanoglu</a></p>
+    </section>
 
-  <section id="contact" class ="page-section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:ppehlivanoglu@outlook.com">ppehlivanoglu@outlook.com</a></p>
-    <p>GitHub: <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">github.com/poyrazpehlivanoglu</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/poyrazpehlivanoglu/" target="_blank" rel="noopener">linkedin.com/in/poyrazpehlivanoglu</a></p>
-  </section>
-</main>
+  </main>
+
   <footer>
     © 2026 Poyraz Pehlivanoglu
   </footer>
 
-<script>
-  const navLinks = document.querySelectorAll("nav a[data-target]");
-  const sections = document.querySelectorAll(".page-section");
+  <script>
+    const navLinks = document.querySelectorAll("nav a[data-target]");
+    const sections = document.querySelectorAll(".page-section");
 
-  function showSection(id){
-    sections.forEach(sec => sec.classList.remove("active"));
-    const target = document.getElementById(id);
-    if (target) target.classList.add("active");
+    function showSection(id){
+      sections.forEach(sec => sec.classList.remove("active"));
+      const target = document.getElementById(id);
+      if (target) target.classList.add("active");
 
-    navLinks.forEach(a => a.classList.remove("active-link"));
-    const activeLink = document.querySelector(`nav a[data-target="${id}"]`);
-    if (activeLink) activeLink.classList.add("active-link");
-  }
+      navLinks.forEach(a => a.classList.remove("active-link"));
+      const activeLink = document.querySelector(`nav a[data-target="${id}"]`);
+      if (activeLink) activeLink.classList.add("active-link");
+    }
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const id = link.getAttribute("data-target");
-      showSection(id);
-      
+    navLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSection(link.getAttribute("data-target"));
+      });
     });
-  });
-</script>
+
+    /* Default page */
+    showSection("general");
+  </script>
+
 </body>
 </html>
