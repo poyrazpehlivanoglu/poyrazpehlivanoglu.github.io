@@ -94,6 +94,63 @@
       border-radius: 999px;
       font-size: 0.95rem;
     }
+
+    Below is a drop-in Projects section that matches your current style (cards + tags). I’m also including the CSS you need and the nav update. You can copy/paste.
+
+Also: your email <a> is currently broken — I fixed that in the nav/section notes at the end.
+
+1) Add this CSS inside your <style> (near your Skills CSS)
+<style>
+  /* ...your existing CSS... */
+
+  /* Projects */
+  .projects-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:18px;
+    margin-top:18px;
+  }
+
+  .project-card{
+    background:#fff;
+    padding:18px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .project-title{
+    margin:0 0 8px 0;
+    font-size:1.15rem;
+  }
+
+  .project-desc{
+    margin:0 0 12px 0;
+    line-height:1.5;
+  }
+
+  .project-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:10px 0 14px 0;
+  }
+
+  .project-chip{
+    background:#eef6ff;
+    color:#0b4f7a;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:0.9rem;
+  }
+
+  .project-links a{
+    display:inline-block;
+    margin-right:12px;
+    color:#007acc;
+    text-decoration:none;
+    font-weight:600;
+  }
+  .project-links a:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -106,8 +163,10 @@
 
   <nav>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
+    <a href="#skills">Skills</a> 
+     <a href="#contact">Projects</a>
     <a href="#contact">Contact</a>
+    
   </nav>
 
   <section id="about">
@@ -159,6 +218,72 @@
       </div>
     </div>
   </section>
+
+  <section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3 class="project-title">FootBil</h3>
+      <p class="project-desc">
+        Developed a Java/JavaFX desktop application that allows users to organize and manage football matches. 
+        The system supports user chat, match reservations, match score entry, 
+        and team formation invitations delivered as in-app notifications.
+        A dynamic leaderboard ranks players based on winrate performance.
+      </p>
+
+      <div class="project-meta">
+        <span class="project-chip">Backend</span>
+        <span class="project-chip">REST</span>
+        <span class="project-chip">Role-based Access</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">GitHub Repo</a>
+        <!-- Optional live demo -->
+        <!-- <a href="https://your-demo-link.com" target="_blank" rel="noopener">Live Demo</a> -->
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3 class="project-title">Binary Search Tree (C++)</h3>
+      <p class="project-desc">
+        Implemented insert/search/delete, traversals, and height calculation.
+        Focused on correctness, edge cases, and clean OOP design.
+      </p>
+
+      <div class="project-meta">
+        <span class="project-chip">C++</span>
+        <span class="project-chip">Data Structures</span>
+        <span class="project-chip">Algorithms</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3 class="project-title">Backend API Practice (Django REST)</h3>
+      <p class="project-desc">
+        Built REST endpoints with authentication and database models.
+        Practiced API design, serialization, and CRUD workflows.
+      </p>
+
+      <div class="project-meta">
+        <span class="project-chip">Python</span>
+        <span class="project-chip">Django REST</span>
+        <span class="project-chip">MySQL</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/poyrazpehlivanoglu" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <section id="contact">
     <h2>Contact</h2>
