@@ -240,6 +240,7 @@
     .project-links a:hover{ text-decoration:underline; }
 
     /* Contact icons */
+
 .contact-list{
   display: grid;
   gap: 12px;
@@ -252,16 +253,21 @@
   gap: 12px;
 }
 
+/* icon becomes a real clickable button */
 .contact-icon{
   width: 34px;
   height: 34px;
   border-radius: 10px;
   background: #111;
   color: #fff;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 34px;
+
+  text-decoration: none;  /* remove underline */
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .contact-icon svg{
@@ -270,17 +276,19 @@
   display: block;
 }
 
-.contact-icon a:hover{
+.contact-icon:hover{
   transform: scale(1.12);
   opacity: 0.92;
 }
 
-.contact-item a{
+/* text link next to it */
+.contact-item a.contact-text{
   text-decoration: none;
 }
-.contact-item a:hover{
+.contact-item a.contact-text:hover{
   text-decoration: underline;
 }
+
 
     /* Mobile */
     @media (max-width: 600px){
