@@ -192,11 +192,16 @@
    Shared Tag Animations
 --------------------------- */
 
+/* Make sure the skill tags and project chips scale smoothly on hover */
 .page-section .skill-tag,
-.page-section .project-chip{
-  opacity: 0;
-  transform: translateY(8px) scale(0.98);
-  transition: transform 0.15s ease, opacity 0.15s ease;
+.page-section .project-chip {
+  transition: transform 0.3s ease;  /* Add a smooth transition for scaling */
+}
+
+/* Hover scaling */
+.page-section.active .skill-tag:hover,
+.page-section.active .project-chip:hover {
+  transform: translateY(-2px) scale(1.12);  /* Smooth scaling */
 }
 
 .page-section.active .skill-tag,
