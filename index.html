@@ -181,13 +181,17 @@
       font-size: 0.95rem;
     }
 
+  .skill-tag,
+  .project-chip{
+  display: inline-flex;
+  will-change: transform;
+  transition: transform 160ms ease;
+}
 
 /* ---------------------------
    Shared Tag Animations
-   (skills + project chips)
 --------------------------- */
 
-/* initial state (hidden) */
 .page-section .skill-tag,
 .page-section .project-chip{
   opacity: 0;
@@ -195,13 +199,11 @@
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-/* animate in when section becomes active */
 .page-section.active .skill-tag,
 .page-section.active .project-chip{
   animation: tagIn 380ms ease forwards;
 }
 
-/* stagger for each container (applies per .skill-tags and per .project-meta) */
 .page-section.active .skill-tags .skill-tag:nth-child(1),
 .page-section.active .project-meta .project-chip:nth-child(1){ animation-delay: 40ms; }
 
@@ -233,10 +235,9 @@
   }
 }
 
-/* hover scale (both) */
 .page-section.active .skill-tag:hover,
 .page-section.active .project-chip:hover{
-  transform: translateY(-2px) scale(1.20); /* change 1.06 -> 1.12 if you want */
+  transform: translateY(-2px) scale(1.12) !important;
 }
 
     /* CV button base */
