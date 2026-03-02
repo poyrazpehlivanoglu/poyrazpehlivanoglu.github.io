@@ -182,37 +182,61 @@
     }
 
 
-.page-section .skill-tag{
+/* ---------------------------
+   Shared Tag Animations
+   (skills + project chips)
+--------------------------- */
+
+/* initial state (hidden) */
+.page-section .skill-tag,
+.page-section .project-chip{
   opacity: 0;
   transform: translateY(8px) scale(0.98);
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-/* when the section is active, animate tags in */
-.page-section.active .skill-tag{
+/* animate in when section becomes active */
+.page-section.active .skill-tag,
+.page-section.active .project-chip{
   animation: tagIn 380ms ease forwards;
 }
 
-/* small stagger */
-.page-section.active .skill-tag:nth-child(1){ animation-delay: 40ms; }
-.page-section.active .skill-tag:nth-child(2){ animation-delay: 80ms; }
-.page-section.active .skill-tag:nth-child(3){ animation-delay: 120ms; }
-.page-section.active .skill-tag:nth-child(4){ animation-delay: 160ms; }
-.page-section.active .skill-tag:nth-child(5){ animation-delay: 200ms; }
-.page-section.active .skill-tag:nth-child(6){ animation-delay: 240ms; }
-.page-section.active .skill-tag:nth-child(7){ animation-delay: 280ms; }
-.page-section.active .skill-tag:nth-child(8){ animation-delay: 320ms; }
+/* stagger for each container (applies per .skill-tags and per .project-meta) */
+.page-section.active .skill-tags .skill-tag:nth-child(1),
+.page-section.active .project-meta .project-chip:nth-child(1){ animation-delay: 40ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(2),
+.page-section.active .project-meta .project-chip:nth-child(2){ animation-delay: 80ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(3),
+.page-section.active .project-meta .project-chip:nth-child(3){ animation-delay: 120ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(4),
+.page-section.active .project-meta .project-chip:nth-child(4){ animation-delay: 160ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(5),
+.page-section.active .project-meta .project-chip:nth-child(5){ animation-delay: 200ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(6),
+.page-section.active .project-meta .project-chip:nth-child(6){ animation-delay: 240ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(7),
+.page-section.active .project-meta .project-chip:nth-child(7){ animation-delay: 280ms; }
+
+.page-section.active .skill-tags .skill-tag:nth-child(8),
+.page-section.active .project-meta .project-chip:nth-child(8){ animation-delay: 320ms; }
 
 @keyframes tagIn{
   to{
     opacity: 1;
-    transform: translateY(-2px) scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* hover scale */
-.page-section.active .skill-tag:hover{
-  transform: translateY(0) scale(1.12);
+/* hover scale (both) */
+.page-section.active .skill-tag:hover,
+.page-section.active .project-chip:hover{
+  transform: translateY(-2px) scale(1.06); /* change 1.06 -> 1.12 if you want */
 }
 
     /* CV button base */
@@ -409,7 +433,7 @@
 
   <nav>
     <a href="#" data-target="general">General</a>
-   <a href="assets/Poyraz_Pehlivanoglu_CV.pdf" target="_blank" rel="noopener">CV</a>
+    <a href="assets/Poyraz_Pehlivanoglu_CV.pdf" target="_blank" rel="noopener">CV</a>
     <a href="#" data-target="about">About Me</a>
     <a href="#" data-target="skills">Skills</a>
     <a href="#" data-target="projects">Projects</a>
@@ -518,7 +542,7 @@
         </div>
       </div>
 
-      <!-- CV FIRST (download directly, modern black) -->
+     
       <div class="block">
         <h3>CV</h3>
         <a class="cv-btn cv-btn-dark"
@@ -678,7 +702,7 @@
       </div>
     </section>
 
-    <!-- Contact TAB (only once, icons are clickable buttons) -->
+    <!-- Contact TAB -->
     <section id="contact" class="page-section">
       <h2>Contact</h2>
 
