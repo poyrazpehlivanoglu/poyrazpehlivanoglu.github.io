@@ -369,32 +369,53 @@
     .contact-item a.contact-text:hover{
       text-decoration: underline;
     }
+    
+   /* Mobile */
+@media (max-width: 600px) {
+  header {
+    padding: 36px 14px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+  header p {
+    font-size: 0.95rem;
+  }
 
-    /* Mobile */
-    @media (max-width: 600px){
-      header{ padding: 36px 14px; }
-      header h1{ font-size: 1.8rem; line-height: 1.15; }
-      header p{ font-size: 0.95rem; }
+  nav {
+    padding: 10px 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  nav a {
+    margin: 0;
+    font-size: 0.95rem;
+  }
 
-      nav{
-        padding: 10px 12px;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px 14px;
-      }
-      nav a{ margin: 0; font-size: 0.95rem; }
+  main {
+    padding: 0 14px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
 
-      main{ padding: 0 14px; }
+  /* Prevent horizontal scrolling in the body and html */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+  }
 
-      .skills-grid,
-      .projects-grid{ grid-template-columns: 1fr; }
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .project-card,
-      .skill-box{ padding: 14px; }
-    }
-  </style>
-</head>
+  .project-card,
+  .skill-box {
+    padding: 14px;
+  }
+}
 
 <body>
   <header>
