@@ -185,24 +185,13 @@
   .project-chip{
   display: inline-flex;
   will-change: transform;
-  transition: transform 160ms ease;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 /* ---------------------------
    Shared Tag Animations
 --------------------------- */
-
-/* Make sure the skill tags and project chips scale smoothly on hover */
-.page-section .skill-tag,
-.page-section .project-chip {
-  transition: transform 0.3s ease;  /* Add a smooth transition for scaling */
-}
-
-/* Hover scaling */
-.page-section.active .skill-tag:hover,
-.page-section.active .project-chip:hover {
-  transform: translateY(-2px) scale(1.12);  /* Smooth scaling */
-}
 
 .page-section.active .skill-tag,
 .page-section.active .project-chip{
@@ -234,15 +223,20 @@
 .page-section.active .project-meta .project-chip:nth-child(8){ animation-delay: 320ms; }
 
 @keyframes tagIn{
+  from{
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
   to{
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
-.page-section.active .skill-tag:hover,
-.page-section.active .project-chip:hover{
-  transform: translateY(-2px) scale(1.12);
+/* Hover effect for skill tags and project chips */
+.skill-tag:hover,
+.project-chip:hover{
+  transform: translateY(-3px) scale(1.08);
 }
 
     /* CV button base */
